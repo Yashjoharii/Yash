@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Changing Buttons with Ease-In Animation</title>
+    <style>
+        *{
+            background-color: black;
+        }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .button {
+        width: 100px;
+        height: 40px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in;
+        border-radius: 10px;
+      }
+
+      .button:nth-child(1) {
+        background-color: red;
+      }
+
+      .button:nth-child(2) {
+        background-color: blue;
+      }
+
+      .button:nth-child(3) {
+        background-color: green;
+      }
+
+      .button:nth-child(4) {
+        background-color: yellow;
+      }
+
+      .button:hover {
+        transform: scale(1.1);
+      }
+
+      .button:active {
+        transform: scale(0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button class="button" onclick="changeColor(1)">blue</button>
+      <button class="button" onclick="changeColor(2)">Green</button>
+      <button class="button" onclick="changeColor(3)">Yellow</button>
+      <button class="button" onclick="changeColor(4)">Red</button>
+    </div>
+
+    <script>
+      function changeColor(buttonIndex) {
+        var buttons = document.querySelectorAll(".button");
+        var colors = ["red", "blue", "green", "yellow"];
+        var newIndex = (buttonIndex - 1 + 1) % colors.length;
+        buttons[buttonIndex - 1].style.backgroundColor = colors[newIndex];
+      }
+    </script>
+  </body>
+</html>
